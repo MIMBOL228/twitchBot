@@ -31,7 +31,7 @@ def start(msg):
 def register(msg):
     bot.send_message(msg.chat.id, ('Чтобы зарегистрироваться, напишите'
                                 ' на сервере команду: /regtelegram '
-                                '{id пользователя в Telegram}'))
+                                f'{msg.from_user.id}'))
 
 # /send
 @bot.message_handler(commands=["send"])
@@ -40,7 +40,7 @@ def send(msg):
     
     # Проверка количества параметров
     if len(args)<2:
-        bot.send_message(msg.chat.id, 'Слишком мало парамтеров')
+        bot.send_message(msg.chat.id, 'Слишком мало параметров')
         return
 
     # Параметры
@@ -88,6 +88,9 @@ def send(msg):
         balance = result["balance"]
         if balance<sum_:
             bot.send_message(msg.chat.id, 'Недостаточно средств')
+            return
+        elif sum_<0:
+            bot.send_message(msg.chat.id, 'Отрицательное число')
             return
 
     with connection.cursor() as cursor:
