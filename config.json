@@ -1,0 +1,8 @@
+{
+    "IP": "localhost",
+    "port": 3306,
+    "username": "root",
+    "passwd": "wispace1",
+    "dbName": "mimbol",
+    "token": "5782653338:AAGl8xvkyG9CpUVL5ETMmTKGH_q8BuN2v2o"
+}
